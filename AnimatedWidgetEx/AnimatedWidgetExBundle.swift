@@ -12,5 +12,7 @@ import SwiftUI
 struct AnimatedWidgetExBundle: WidgetBundle {
     var body: some Widget {
         AnimatedWidgetEx()
+        
+        PictureWidget()
     }
 }

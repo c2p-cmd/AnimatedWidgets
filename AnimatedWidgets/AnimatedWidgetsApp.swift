@@ -12,6 +12,7 @@ struct AnimatedWidgetsApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .defaultAppStorage(ourStore)
         }
     }
 }

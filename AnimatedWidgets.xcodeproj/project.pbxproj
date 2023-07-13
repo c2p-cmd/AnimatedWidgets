@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00654F932A5FD318003FA1BE /* CustomPictureWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00654F922A5FD318003FA1BE /* CustomPictureWidget.swift */; };
+		00654F972A5FD6DB003FA1BE /* UIImage+Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00654F962A5FD6DB003FA1BE /* UIImage+Widgets.swift */; };
+		00654F982A5FD6DB003FA1BE /* UIImage+Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00654F962A5FD6DB003FA1BE /* UIImage+Widgets.swift */; };
 		00C039A92A5EF9B1005AE439 /* AnimatedWidgetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C039A82A5EF9B1005AE439 /* AnimatedWidgetsApp.swift */; };
 		00C039AB2A5EF9B1005AE439 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C039AA2A5EF9B1005AE439 /* ContentView.swift */; };
 		00C039AD2A5EF9B2005AE439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00C039AC2A5EF9B2005AE439 /* Assets.xcassets */; };
@@ -44,6 +47,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00654F922A5FD318003FA1BE /* CustomPictureWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPictureWidget.swift; sourceTree = "<group>"; };
+		00654F942A5FD365003FA1BE /* AnimatedWidgetExExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnimatedWidgetExExtension.entitlements; sourceTree = "<group>"; };
+		00654F952A5FD36F003FA1BE /* AnimatedWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnimatedWidgets.entitlements; sourceTree = "<group>"; };
+		00654F962A5FD6DB003FA1BE /* UIImage+Widgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Widgets.swift"; sourceTree = "<group>"; };
 		00C039A52A5EF9B1005AE439 /* AnimatedWidgets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimatedWidgets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C039A82A5EF9B1005AE439 /* AnimatedWidgetsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedWidgetsApp.swift; sourceTree = "<group>"; };
 		00C039AA2A5EF9B1005AE439 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +88,7 @@
 		00C0399C2A5EF9B1005AE439 = {
 			isa = PBXGroup;
 			children = (
+				00654F942A5FD365003FA1BE /* AnimatedWidgetExExtension.entitlements */,
 				00C039A72A5EF9B1005AE439 /* AnimatedWidgets */,
 				00C039C02A5F0122005AE439 /* AnimatedWidgetEx */,
 				00C039BB2A5F0122005AE439 /* Frameworks */,
@@ -100,10 +108,12 @@
 		00C039A72A5EF9B1005AE439 /* AnimatedWidgets */ = {
 			isa = PBXGroup;
 			children = (
+				00654F952A5FD36F003FA1BE /* AnimatedWidgets.entitlements */,
 				00C039A82A5EF9B1005AE439 /* AnimatedWidgetsApp.swift */,
 				00C039AA2A5EF9B1005AE439 /* ContentView.swift */,
 				00C039AC2A5EF9B2005AE439 /* Assets.xcassets */,
 				00C039AE2A5EF9B2005AE439 /* Preview Content */,
+				00654F962A5FD6DB003FA1BE /* UIImage+Widgets.swift */,
 			);
 			path = AnimatedWidgets;
 			sourceTree = "<group>";
@@ -132,6 +142,7 @@
 				00C039C32A5F0122005AE439 /* AnimatedWidgetEx.swift */,
 				00C039C52A5F0124005AE439 /* Assets.xcassets */,
 				00C039C72A5F0124005AE439 /* Info.plist */,
+				00654F922A5FD318003FA1BE /* CustomPictureWidget.swift */,
 			);
 			path = AnimatedWidgetEx;
 			sourceTree = "<group>";
@@ -239,6 +250,7 @@
 			files = (
 				00C039AB2A5EF9B1005AE439 /* ContentView.swift in Sources */,
 				00C039A92A5EF9B1005AE439 /* AnimatedWidgetsApp.swift in Sources */,
+				00654F972A5FD6DB003FA1BE /* UIImage+Widgets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +259,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				00C039C22A5F0122005AE439 /* AnimatedWidgetExBundle.swift in Sources */,
+				00654F932A5FD318003FA1BE /* CustomPictureWidget.swift in Sources */,
 				00C039C42A5F0122005AE439 /* AnimatedWidgetEx.swift in Sources */,
+				00654F982A5FD6DB003FA1BE /* UIImage+Widgets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +396,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AnimatedWidgets/AnimatedWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AnimatedWidgets/Preview Content\"";
@@ -412,6 +427,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AnimatedWidgets/AnimatedWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AnimatedWidgets/Preview Content\"";
@@ -441,6 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = AnimatedWidgetExExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HJ3C6V359D;
@@ -468,6 +485,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = AnimatedWidgetExExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HJ3C6V359D;

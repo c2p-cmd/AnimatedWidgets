@@ -7,29 +7,44 @@
 
 import SwiftUI
 import Foundation
+import UIKit
+import PhotosUI
+import WidgetKit
 
 struct ContentView: View {
-    private let gifs = 0...39
-    private let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
-    
-    @State private var selected = 00
+    @State private var uiImage: UIImage? = UIImage(named: "frame_40_delay-0.03s")
+    @State private var picketItem: PhotosPickerItem?
     
     var body: some View {
         VStack {
-            Image("frame_\(selected)_delay-0.03s", bundle: .main)
+            PhotosPicker("Choose your image", selection: self.$picketItem, matching: .images)
+            
+            if let uiImage = uiImage {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFit()
+            }
         }
         .padding()
-        .onReceive(timer) { _ in
-            if selected >= 39 {
-                selected = 0
+        .onChange(of: picketItem) { _ in
+            Task {
+                if let data = try? await picketItem?.loadTransferable(type: Data.self) {
+                    if let uiImage = UIImage(data: data) {
+                        saveImage(uiImage)
+                        self.uiImage = uiImage
+                        WidgetCenter.shared.reloadTimelines(ofKind: "MyWidget")
+                        return
+                    }
+                }
+                
+                print("Failed")
             }
-            selected += 1
         }
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
