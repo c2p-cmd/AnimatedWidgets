@@ -23,21 +23,44 @@ struct ContentView: View {
                 Image(uiImage: uiImage)
                     .resizable()
                     .scaledToFit()
+                    .background(.white)
             }
+            
+            Button {
+                WidgetCenter.shared.reloadTimelines(ofKind: "MyWidget")
+            } label: {
+                Text("Reload")
+            }
+
         }
         .padding()
-        .onChange(of: picketItem) { _ in
-            Task {
-                if let data = try? await picketItem?.loadTransferable(type: Data.self) {
-                    if let uiImage = UIImage(data: data) {
-                        saveImage(uiImage)
-                        self.uiImage = uiImage
+        .onAppear {
+            loadImage { newImage in
+                self.uiImage = newImage
+            }
+        }
+        .onChange(of: picketItem) { value in
+            value?.loadTransferable(type: Data.self) { (result) in
+                switch result {
+                case .success(let data):
+                    if let data {
+                        if let image = UIImage(data: data, scale: 0.5) {
+                            saveImage(image)
+                        } else {
+                            print("Issue")
+                        }
+                        loadImage { newImage in
+                            self.uiImage = newImage
+                        }
                         WidgetCenter.shared.reloadTimelines(ofKind: "MyWidget")
-                        return
+                    } else {
+                        print("No data")
                     }
+                    break
+                case .failure(let err):
+                    print(err.localizedDescription)
+                    break
                 }
-                
-                print("Failed")
             }
         }
     }

@@ -23,11 +23,8 @@ struct PictureTimelineProvider: TimelineProvider {
         
         loadImage { newImage in
             entry.uiImage = newImage
-        } onError: { oldImage in
-            entry.uiImage = oldImage
+            completion(entry)
         }
-        
-        completion(entry)
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<PictureEntry>) -> Void) {
@@ -46,7 +43,7 @@ struct PictureEntryView: View {
         VStack {
             Image(uiImage: entry.uiImage)
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
         }.background(.gray)
     }
 }
